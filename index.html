@@ -22,9 +22,21 @@
 
 <body>
   <nav>
-    <a onclick="window.location.href = 'https://saas.momodel.cn/'" target="_self">返回网站</a>
+    <a href="javascript:void(0)" onclick="navigateBack()">返回网站</a>
   </nav>
   <div id="app">加载中</div>
+  <script>
+      function navigateBack() {
+          const referrer = document.referrer;
+          const pattern = /^https:\/\/[^\/]+\.saas\.momodel\.cn/;
+
+          if (pattern.test(referrer)) {
+              window.location.href = referrer;
+          } else {
+              window.location.href = 'https://saas.momodel.cn/';
+          }
+      }
+  </script>
   <script>
     window.$docsify = {
       name: 'MO',
